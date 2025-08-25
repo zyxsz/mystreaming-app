@@ -1,0 +1,1 @@
+ALTER TABLE "uploads" ALTER COLUMN "size" SET DATA TYPE double precision;

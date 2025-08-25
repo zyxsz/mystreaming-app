@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "clients/admin"
+		},
+		{
+			"path": "clients/web-app"
+		},
+		{
+			"path": "server"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"cmcd",
+			"sonner",
+			"Sonner",
+			"transcoders",
+			"Uuuhh",
+			"VCPU",
+			"vcpus",
+			"Woooow"
+		]
+	}
+}

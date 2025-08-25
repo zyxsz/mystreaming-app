@@ -1,0 +1,22 @@
+{
+  "name": "auto-scaling-lambda",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/aws-lambda": "^8.10.150",
+    "@types/bun": "latest",
+    "tsx": "^4.20.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-auto-scaling": "^3.844.0",
+    "@aws-sdk/client-sqs": "^3.844.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  }
+}

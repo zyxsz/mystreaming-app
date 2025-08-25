@@ -1,0 +1,1 @@
+ALTER TABLE "titleImages" ADD COLUMN "isProcessed" boolean DEFAULT false;

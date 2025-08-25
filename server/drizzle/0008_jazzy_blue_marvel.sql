@@ -1,0 +1,1 @@
+ALTER TABLE "seasons" RENAME COLUMN "bannerKey" TO "posterKey";

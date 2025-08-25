@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style>
+      * { margin: 0; padding: 0; border: 0; } body { width:
+      {{width}}px; height:
+      {{height}}px; } .bannerContainer { position: relative; width: 100%;
+      height: 100%; background: #000; } .bannerImage { width: 100%; height:
+      auto; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index:
+      10; } .background { width: 100%; height: 100%; position: absolute; top: 0;
+      left: 0; right: 0; bottom: 0; z-index: 11; /* background-color:
+      rgba(0,0,0,0.35); */ background: rgb(0, 0, 0); background:
+      linear-gradient( 180deg, rgba(44, 44, 49, 0%) 0%, rgba(44, 44, 49, 85%)
+      100% ); } .logoImage { position: absolute; bottom: 5%; left: 5%; z-index:
+      99; width: 100%; max-width:
+      {{logoWidth}}px; height: auto; max-height:
+      {{logoHeight}}px; object-fit: contain; object-position: left bottom;
+      z-index: 99; } .logoIcon { position: absolute; bottom: 5%; left: 5%;
+      z-index: 15; filter: blur(32px); opacity: 0.5; }
+    </style>
+  </head>
+  <body>
+    <figure class="bannerContainer">
+      <img class="bannerImage" src="{{bannerUrl}}" alt="Banner data" />
+      {{#if logoUrl}}
+        <img class="logoImage" src="{{logoUrl}}" alt="Logo data" />
+      {{/if}}
+
+      {{#if logoUrl}}
+        <svg
+          width="236"
+          height="92"
+          viewBox="0 0 236 92"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="logoIcon"
+        >
+          <path
+            d="M90.5001 89.9999C90.5001 89.9999 27.0001 95.9999 19.0001 83.4999C11.0001 70.9999 1.00006 48.4999 1.00006 48.4999C1.00006 48.4999 -2.99994 12.4999 11.5001 3.99995C26.0001 -4.50005 109 3.99995 109 3.99995C109 3.99995 195 4.99995 211.5 9.99995C228 14.9999 235.5 48.4999 235.5 48.4999C235.5 48.4999 235.5 76.4999 219.5 83.4999C203.5 90.4999 165 89.9999 165 89.9999H90.5001Z"
+            fill="#2C2C31"
+          />
+        </svg>
+      {{/if}}
+      <div class="background"></div>
+    </figure>
+  </body>
+</html>

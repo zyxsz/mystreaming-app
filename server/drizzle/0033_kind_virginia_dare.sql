@@ -1,0 +1,1 @@
+CREATE INDEX "playback_status_idx" ON "playbacks" USING btree ("status");

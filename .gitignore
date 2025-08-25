@@ -1,0 +1,15 @@
+.env
+.ssh
+*.env
+*.env.*
+
+!.env.example
+
+/server-old
+
+*.zip
+node_modules
+
+clients/admin
+clients/web-app-nextjs
+clients/web-app-remix

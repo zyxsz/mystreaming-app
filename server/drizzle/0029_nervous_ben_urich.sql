@@ -1,0 +1,1 @@
+ALTER TABLE "medias" ALTER COLUMN "size" SET DATA TYPE double precision;

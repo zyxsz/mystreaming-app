@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "Azeret Mono", "Courier Prime", monospace;
+
+  --color-app-primary: #19191e;
+  --color-app-primary-hover: oklch(0.68 0.05 285.16 / 0.1);
+
+  --color-app-primary-foreground: #e1e1e1;
+  --color-app-primary-foreground-muted: #9f9f9f;
+  --color-app-primary-foreground-hover: #a9a9a9;
+
+  --color-app-primary-button: #2c2c31;
+  --color-app-primary-button-hover: #26262b;
+
+  --color-app-secondary: #26262b;
+  --color-app-secondary-hover: #19191e;
+
+  --color-app-secondary-foreground: #e1e1e1;
+  --color-app-secondary-foreground-muted: #9f9f9f;
+  --color-app-secondary-foreground-hover: #a9a9a9;
+  --color-app-secondary-foreground-muted-plus: #6b6a6a;
+}
+
+html,
+body {
+  @apply antialiased bg-app-primary text-app-primary-foreground overflow-x-hidden;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  /* html {
+    font-size: 0.85vw;
+  } */
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--app-secondary);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .spinner {
+    transition: all 500ms ease-out;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    animation: Sweep 1s linear alternate infinite, Rotate 0.8s linear infinite;
+  }
+
+  @keyframes Sweep {
+    0% {
+      clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 50% 50%, 0% 0%, 0% 0%, 0% 0%);
+    }
+    50% {
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        0% 100%,
+        50% 50%,
+        100% 0%,
+        100% 0%,
+        0% 0%
+      );
+    }
+    100% {
+      clip-path: polygon(
+        0% 0%,
+        0% 100%,
+        100% 100%,
+        50% 50%,
+        100% 100%,
+        100% 0%,
+        0% 0%
+      );
+    }
+  }
+  @keyframes Rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .shake-el {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+}

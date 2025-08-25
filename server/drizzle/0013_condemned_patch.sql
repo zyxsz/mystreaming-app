@@ -1,0 +1,1 @@
+ALTER TABLE "friendshipRequests" DROP CONSTRAINT "friendshipRequests_from_to_pk";

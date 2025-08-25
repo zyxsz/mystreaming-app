@@ -1,0 +1,1 @@
+ALTER TABLE "playbacks" ADD COLUMN "duration" integer DEFAULT 0;

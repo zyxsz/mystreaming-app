@@ -1,0 +1,12 @@
+name: mys-aws
+description: A TypeScript program to deploy a serverless application on AWS
+main: src/index.ts
+
+runtime:
+  name: nodejs
+  options:
+    packagemanager: npm
+
+config:
+    cloudflare:apiToken:
+        value: 'TODO: var.cloudflare_api_token'

@@ -1,0 +1,13 @@
+config:
+  aws:region: us-east-1
+  pulumi:template: serverless-aws-typescript
+  mys-aws:JWT_SECRET:
+    secure: AAABAMkhmVRbUWd3aDqQioahWyBtQY6ZmbT3PTaCqFzXWR+R0xuayVA=
+  mys-aws:TMDB_API_TOKEN:
+    secure: AAABANqiTS44+bk5mdWZiVqPDpNzizrraoDV1SWCBVpw81BrDki0p4D5ApHKmJVTibVF61UXpEV5sQ1vvHLvquRaaoMYH4EmnoyYSyu3pTjZrARwq6JHlxnLaujDRsXEfb89TunOFnxmd1zThBPhhadGCh79yBuUkty3wRiwcIP8NpVJhog0tDi8IZvqrkKB6ecs5QDcqSuyAV5RCm8DXOjAiQ4TzKqUaQWM/pje9N7vvb4JTXyBEPZ3JHhboYhjhzegC15AebrAUrLOcynIiI0afmk4m+4hDvQv0ji0tEMCdX6/FjpdpDzvKwsSPCS4DqEE8LfV2xHEg4jcgEPn01p2Z34Ll+gmFjrDcl5Rug==
+  mys-aws:ENCRYPTION_IV:
+    secure: AAABAA/iVK85K+4x4h1SAidV3fVju3BEL/2bB6D2K5/SgWsIteUMPkwTsUgOkP+wo2X7zV4CtVBEngRXWfJ/Hw==
+  mys-aws:ENCRYPTION_SECRET:
+    secure: AAABAB+Lvgw73WbMRHo43kfUMDrqTU/tG1nJ1aT63PM/batqJ67waW6Q8ti1Sdw0bDK7AMn2D5u/IU5V8wBnYDkA6o2upZjoAzmuJrRidkKqeNupMsMG45alnjaQRVej
+  mys-aws:TMDB_ENDPOINT: https://api.themoviedb.org/3/
+  mys-aws:TMDB_IMAGE_ENDPOINT: https://image.tmdb.org/t/p/w500

@@ -1,0 +1,9 @@
+{
+  "name": "my-streaming",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "server",
+    "./clients/web-app"
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "medias" ADD COLUMN "duration" double precision;

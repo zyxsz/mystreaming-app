@@ -1,0 +1,14 @@
+bun.lockb
+node_modules
+bento4
+dist
+node_modules
+.env
+!.env.example
+src-o
+src-old
+tmp/**
+
+!tmp
+
+bin
