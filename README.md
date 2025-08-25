@@ -1,13 +1,13 @@
 # MyStreaming
 
-Uma plataforma de streaming completa, desde um catálogo bonito até o encode/transcode de vídeos.
+Uma plataforma de streaming completa, desde um catálogo bonito até o *encode/transcode* de vídeos.
 
 Esse repositório contém:
 
-1. [clients/web-app](spec.md) uma aplicação react com todo o front-end.
-2. [server](spec.md) a api completa.
-3. [packages/encoder](spec.md) um pacote responsável por encode/transcode dos vídeos.
-4. [infra/pulumi](#badge) toda a infraestrutura necessária para rodar o projeto.
+1. [server](server) a api completa.
+2. [clients/web-app](clients/web-app) uma aplicação react com todo o front-end.
+3. [packages/encoder](packages/encoder) um pacote responsável por *encode/transcode* dos vídeos.
+4. [infra/pulumi](infra/pulumi) toda a infraestrutura necessária para rodar o projeto.
 
 ## Conteúdo
 
@@ -19,21 +19,24 @@ Esse repositório contém:
 - [Pacotes](#api)
   - [API](#api)
   - [Front end](#front-end)
+- [Progresso](#progresso)
 - [Mantedores](#mantedores)
 - [License](#license)
 
 ## Sobre
 
-Gosto muito de assistir filmes e séries desde que me entendo por gente. Com todas essas diferentes plataformas de streaming disponíveis, muitas deixam a desejar. Logo, me veio a brilhante ideia de criar a minha própria, assim surgindo a MyStreaming!
+Gosto muito de assistir filmes e séries desde que me entendo por gente. Com todas essas diferentes plataformas de streaming disponíveis, muitas deixam a desejar. Logo, me veio a brilhante ideia de criar a minha própria, assim surgindo a **MyStreaming**!
 
-Um dos principais problemas que eu vejo é a experiência do usuário, por isso a MyStreaming foi criada com o principal foco nesse ponto, oferecendo uma experiência fluida, funcional e elegante.
+Um dos principais problemas que eu vejo é a experiência do usuário, por isso a **MyStreaming** foi criada com o principal foco nesse ponto, oferecendo uma experiência fluida, funcional e elegante.
 
 No meio do caminho, me deparei com um problema, streaming de vídeo é bem mais complicado do que aparenta. Procurei soluções em cloud, mas todas acabam sendo muito caras, sendo assim decidi criar minha própria solução, uma [aplicação](packages/endcoder) feita para rodar em qualquer VPS totalmente personalizada com as configurações ideais visando qualidade e custo.
 
 ## Imagens
 
 ![Home 01](https://i.imgur.com/SUFersh.png)
-![Home 02](https://imgur.com/6Unj3mv)
+
+![Home 02](https://i.imgur.com/CPnnGMR.png)
+
 ![Dashboard](https://i.imgur.com/VNZQn6S.png)
 
 ## Instalação
