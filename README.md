@@ -132,6 +132,8 @@ Lista das principais funcionalidades pendentes:
 
 ## Estrutura
 
+#### Catalogo
+
 ```mermaid
 classDiagram
 direction LR
@@ -154,6 +156,32 @@ direction LR
 	    type
 	    updatedAt
 	    createdAt
+    }
+
+    class Genre {
+        id
+        externalId
+        name
+        defaultLanguage
+    }
+
+    class TitlesToGenres {
+        titleId
+        genreId
+    }
+
+    class TitleImages {
+        id
+        titleId
+
+        width
+        height
+
+        key
+        type
+
+        isProcessed
+        createdAt
     }
 
     class Season {
@@ -186,10 +214,160 @@ direction LR
 	    createdAt
     }
 
+    class User {
+        id
+
+        username
+        email
+        password
+
+        role
+
+        isEmailVerified
+        isFromExternalProvider
+
+        updatedAt
+        createdAt
+    }
+
+    class Progress{
+        id
+
+        userId
+        titleId
+        episodeId
+
+        currentTime
+        duration
+
+        updatedAt
+        createdAt
+    }
+
+    class Media {
+        id
+        encodeId
+        name
+        status
+        updatedAt
+        createdAt
+    }
+
+    class MediaAssign {
+        id
+
+        titleId
+        mediaId
+        episodeId
+
+        assignedBy
+        assignedAt
+    }
+
+
+    class Playback {
+        id
+        userId
+        mediaId
+
+        currentTime
+        status
+
+        lastKeepAliveAt
+        expiresAt
+
+        duration
+        updatedAt
+        createdAt
+    }
+
+    class Upload {
+        id
+        multipartUploadId
+        key
+        originalName
+        size
+        type
+        status
+        updatedAt
+        createdAt
+    }
+
+    class Encode {
+        id
+
+        originUploadId
+        status
+
+        updatedAt
+        createdAt
+    }
+
+    class EncodeAction {
+        id
+        encodeId
+        userId
+
+        isAutomated
+
+        status
+        type
+
+        finishedAt
+        updatedAt
+        createdAt
+    }
+
+    class EncodeInstance {
+        id
+
+        actionId
+        externalId
+
+        costInCents
+        region
+        zone
+        instanceType
+        isSpot
+
+        status
+        type
+
+        updatedAt
+        createdAt
+    }
+
+    class EncodeMedia {
+        id
+        encodeId
+
+        version
+        key
+
+        encryptionData
+        type
+
+        status
+
+        updatedAt
+        createdAt
+    }
+
+
+    Encode --> Upload
+    Encode --o EncodeAction
+    EncodeAction --> EncodeInstance
+    Encode --o EncodeMedia
+
+    Media --o MediaAssign : assigns[]
+    User --o Playback : playbacks[]
+    Playback --> Media : Media!
+    User --o Progress : progress[]
+    Title --o TitleImages : images[]
+    Title --o TitlesToGenres : genres[]
+    TitlesToGenres --|> Genre : genre
     Title --o Season : seasons[]
     Season --o Episode : episodes[]
-
-
 ```
 
 ## Conceitos e lógica
