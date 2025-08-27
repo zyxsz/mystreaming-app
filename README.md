@@ -214,36 +214,18 @@ direction LR
 	    createdAt
     }
 
-    class User {
-        id
+    Title --o TitleImages : images[]
+    Title --o TitlesToGenres : genres[]
+    TitlesToGenres --|> Genre : genre
+    Title --o Season : seasons[]
+    Season --o Episode : episodes[]
+```
 
-        username
-        email
-        password
+#### Conteúdo
 
-        role
-
-        isEmailVerified
-        isFromExternalProvider
-
-        updatedAt
-        createdAt
-    }
-
-    class Progress{
-        id
-
-        userId
-        titleId
-        episodeId
-
-        currentTime
-        duration
-
-        updatedAt
-        createdAt
-    }
-
+```mermaid
+classDiagram
+direction LR
     class Media {
         id
         encodeId
@@ -264,22 +246,6 @@ direction LR
         assignedAt
     }
 
-
-    class Playback {
-        id
-        userId
-        mediaId
-
-        currentTime
-        status
-
-        lastKeepAliveAt
-        expiresAt
-
-        duration
-        updatedAt
-        createdAt
-    }
 
     class Upload {
         id
@@ -360,14 +326,78 @@ direction LR
     Encode --o EncodeMedia
 
     Media --o MediaAssign : assigns[]
-    User --o Playback : playbacks[]
-    Playback --> Media : Media!
+```
+
+#### Usuários
+
+```mermaid
+classDiagram
+direction LR
+    class User {
+        id
+
+        username
+        email
+        password
+
+        role
+
+        isEmailVerified
+        isFromExternalProvider
+
+        updatedAt
+        createdAt
+    }
+
+    class Playback {
+        id
+        userId
+        mediaId
+
+        currentTime
+        status
+
+        lastKeepAliveAt
+        expiresAt
+
+        duration
+        updatedAt
+        createdAt
+    }
+
+     class Progress{
+        id
+
+        userId
+        titleId
+        episodeId
+
+        currentTime
+        duration
+
+        updatedAt
+        createdAt
+    }
+
+    class Profile {
+        id
+        userId
+
+        avatar
+        banner
+
+        nickname
+        tagline
+
+        bio
+
+        updatedAt
+        createdAt
+    }
+
+    User --o Playback : playback[]
     User --o Progress : progress[]
-    Title --o TitleImages : images[]
-    Title --o TitlesToGenres : genres[]
-    TitlesToGenres --|> Genre : genre
-    Title --o Season : seasons[]
-    Season --o Episode : episodes[]
+    User --o Profile : profile?
 ```
 
 ## Conceitos e lógica
