@@ -130,6 +130,68 @@ Lista das principais funcionalidades pendentes:
 - [ ] Integração social
   - Sistema de amigos, watch party, e recomendações.
 
+## Estrutura
+
+```mermaid
+classDiagram
+direction LR
+    class Title {
+	    id
+	    externalIdentifier
+	    tmdbId
+	    imdbId
+	    name
+	    overview
+	    tagline
+	    releaseDate
+	    originalLanguage
+	    popularity
+	    rating
+	    ratingCount
+	    bannerKey
+	    posterKey
+	    origin
+	    type
+	    updatedAt
+	    createdAt
+    }
+
+    class Season {
+	    id
+	    titleId
+	    number
+	    name
+	    overview
+	    posterKey
+	    airDate
+	    rating
+	    origin
+	    updatedAt
+	    createdAt
+    }
+
+    class Episode {
+	    id
+	    seasonId
+	    tmdbId
+	    imdbId
+	    number
+	    name
+	    overview
+	    bannerKey
+	    rating
+	    airDate
+	    origin
+	    updatedAt
+	    createdAt
+    }
+
+    Title --o Season : seasons[]
+    Season --o Episode : episodes[]
+
+
+```
+
 ## Conceitos e lógica
 
 Em breve.
