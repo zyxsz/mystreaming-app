@@ -130,6 +130,276 @@ Lista das principais funcionalidades pendentes:
 - [ ] Integração social
   - Sistema de amigos, watch party, e recomendações.
 
+## Estrutura
+
+#### Catalogo
+
+```mermaid
+classDiagram
+direction LR
+    class Title {
+	    id
+	    externalIdentifier
+	    tmdbId
+	    imdbId
+	    name
+	    overview
+	    tagline
+	    releaseDate
+	    originalLanguage
+	    popularity
+	    rating
+	    ratingCount
+	    bannerKey
+	    posterKey
+	    origin
+	    type
+	    updatedAt
+	    createdAt
+    }
+
+    class Genre {
+        id
+        externalId
+        name
+        defaultLanguage
+    }
+
+    class TitlesToGenres {
+        titleId
+        genreId
+    }
+
+    class TitleImages {
+        id
+        titleId
+
+        width
+        height
+
+        key
+        type
+
+        isProcessed
+        createdAt
+    }
+
+    class Season {
+	    id
+	    titleId
+	    number
+	    name
+	    overview
+	    posterKey
+	    airDate
+	    rating
+	    origin
+	    updatedAt
+	    createdAt
+    }
+
+    class Episode {
+	    id
+	    seasonId
+	    tmdbId
+	    imdbId
+	    number
+	    name
+	    overview
+	    bannerKey
+	    rating
+	    airDate
+	    origin
+	    updatedAt
+	    createdAt
+    }
+
+    Title --o TitleImages : images[]
+    Title --o TitlesToGenres : genres[]
+    TitlesToGenres --|> Genre : genre
+    Title --o Season : seasons[]
+    Season --o Episode : episodes[]
+```
+
+#### Conteúdo
+
+```mermaid
+classDiagram
+direction LR
+    class Media {
+        id
+        encodeId
+        name
+        status
+        updatedAt
+        createdAt
+    }
+
+    class MediaAssign {
+        id
+
+        titleId
+        mediaId
+        episodeId
+
+        assignedBy
+        assignedAt
+    }
+
+
+    class Upload {
+        id
+        multipartUploadId
+        key
+        originalName
+        size
+        type
+        status
+        updatedAt
+        createdAt
+    }
+
+    class Encode {
+        id
+
+        originUploadId
+        status
+
+        updatedAt
+        createdAt
+    }
+
+    class EncodeAction {
+        id
+        encodeId
+        userId
+
+        isAutomated
+
+        status
+        type
+
+        finishedAt
+        updatedAt
+        createdAt
+    }
+
+    class EncodeInstance {
+        id
+
+        actionId
+        externalId
+
+        costInCents
+        region
+        zone
+        instanceType
+        isSpot
+
+        status
+        type
+
+        updatedAt
+        createdAt
+    }
+
+    class EncodeMedia {
+        id
+        encodeId
+
+        version
+        key
+
+        encryptionData
+        type
+
+        status
+
+        updatedAt
+        createdAt
+    }
+
+
+    Encode --> Upload
+    Encode --o EncodeAction
+    EncodeAction --> EncodeInstance
+    Encode --o EncodeMedia
+
+    Media --o MediaAssign : assigns[]
+```
+
+#### Usuários
+
+```mermaid
+classDiagram
+direction LR
+    class User {
+        id
+
+        username
+        email
+        password
+
+        role
+
+        isEmailVerified
+        isFromExternalProvider
+
+        updatedAt
+        createdAt
+    }
+
+    class Playback {
+        id
+        userId
+        mediaId
+
+        currentTime
+        status
+
+        lastKeepAliveAt
+        expiresAt
+
+        duration
+        updatedAt
+        createdAt
+    }
+
+     class Progress{
+        id
+
+        userId
+        titleId
+        episodeId
+
+        currentTime
+        duration
+
+        updatedAt
+        createdAt
+    }
+
+    class Profile {
+        id
+        userId
+
+        avatar
+        banner
+
+        nickname
+        tagline
+
+        bio
+
+        updatedAt
+        createdAt
+    }
+
+    User --o Playback : playback[]
+    User --o Progress : progress[]
+    User --o Profile : profile?
+```
+
 ## Conceitos e lógica
 
 Em breve.
